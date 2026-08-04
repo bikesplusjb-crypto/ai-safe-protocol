@@ -25,11 +25,13 @@
   --maxw:1140px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+*{min-width:0}
+html,body{max-width:100%;overflow-x:hidden}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:"Manrope",system-ui,sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 .mono{font-family:"IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.15em;font-size:10.5px;font-weight:500}
-h1,h2,h3{font-weight:800;letter-spacing:-.035em;line-height:1.06}
+h1,h2,h3{font-weight:800;letter-spacing:-.035em;line-height:1.06;overflow-wrap:break-word}
 
 /* header */
 header{position:sticky;top:0;z-index:50;background:rgba(244,243,239,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
@@ -49,16 +51,19 @@ nav a:hover{color:var(--ink)}
 .btn[disabled]{opacity:.45;cursor:not-allowed}
 
 /* hero */
-.hero{padding:76px 0 46px;max-width:760px}
+.hero{padding:76px 22px 46px}
+.hero>*{max-width:760px}
 .eyebrow{color:var(--seal);margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .eyebrow:before{content:"";width:24px;height:1px;background:var(--seal)}
 h1{font-size:clamp(35px,6.6vw,62px)}
 .lede{color:var(--ink-2);font-size:18.5px;margin-top:22px;max-width:56ch}
-.hero-cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.hero-cta{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.hero-cta .btn{flex:1 1 100%;text-align:center}
+.lede--2{margin-top:14px}
 .assure{color:var(--dimmer);margin-top:16px;font-size:13.5px}
 
 .pillars{display:grid;gap:0;border-top:1px solid var(--hair-2);margin-top:56px}
-.pillar{padding:20px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:64px 1fr;gap:16px}
+.pillar{padding:20px 0;border-bottom:1px solid var(--hair);display:grid;grid-template-columns:44px 1fr;gap:14px}
 .pillar .mono{color:var(--seal);padding-top:5px}
 .pillar b{font-weight:700;display:block}
 .pillar span{color:var(--dim);font-size:15px}
@@ -99,7 +104,8 @@ h2{font-size:clamp(26px,4.8vw,40px)}
 .stamp.pass{border-color:var(--seal);color:var(--seal)}
 .verdict p{flex:1 1 240px;color:var(--ink-2);font-size:15.5px}
 
-table.ctrl{width:100%;border-collapse:collapse;font-size:14.5px}
+table.ctrl{width:100%;border-collapse:collapse;font-size:14.5px;table-layout:fixed}
+table.ctrl td,table.ctrl th{overflow-wrap:anywhere}
 table.ctrl th{font-family:"IBM Plex Mono";font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dimmer);text-align:left;padding:12px 20px;border-bottom:1px solid var(--hair);font-weight:600}
 table.ctrl td{padding:14px 20px;border-bottom:1px solid var(--hair);vertical-align:top}
 table.ctrl td.c{font-family:"IBM Plex Mono";font-size:11px;color:var(--dim);white-space:nowrap}
@@ -175,6 +181,9 @@ footer{border-top:1px solid var(--hair-2);padding:44px 0 48px;color:var(--dim);f
 footer .logo{margin-bottom:16px}
 .fine{max-width:66ch;margin-top:14px;line-height:1.65;color:var(--dimmer)}
 
+@media(min-width:560px){
+  .hero-cta .btn{flex:0 0 auto;text-align:left}
+}
 @media(min-width:900px){
   nav{display:flex}
   .pillars{grid-template-columns:repeat(3,1fr);border-top:0}
@@ -216,7 +225,8 @@ footer .logo{margin-bottom:16px}
 <div class="wrap hero">
   <div class="eyebrow mono">The small business standard for safe AI use</div>
   <h1>Use AI. Keep control of it.</h1>
-  <p class="lede">The risk is not that AI turns on you. It is that a cloned voice authorizes a payment, a chatbot leaks a client file, or an automation acts with access nobody reviewed. AI Safe Protocol is the written standard that closes all three — eighteen controls across five domains, a signed policy, and a record you can show your bank, your insurer, or your biggest client.</p>
+  <p class="lede">The risk is not that AI turns on you. It is that a cloned voice authorizes a payment, a chatbot leaks a client file, or an automation acts with access nobody reviewed.</p>
+  <p class="lede lede--2">AI Safe Protocol closes all three — eighteen controls, a signed policy, and a dated record you can show your bank, your insurer, or your biggest client.</p>
   <div class="hero-cta">
     <a href="#assess" class="btn btn--pri">Run the free assessment</a>
     <a href="#standard" class="btn btn--sec">See the standard</a>
@@ -329,11 +339,12 @@ footer .logo{margin-bottom:16px}
         <li><b>AI use policy</b> — two pages, editable, with a staff signature page</li>
         <li><b>Verification protocol</b> — the callback rule that stops payment fraud</li>
         <li><b>Agent permission review</b> — what your AI tools can reach, and who can switch them off</li>
-        <li><b>Staff training</b> — 30-minute recorded session and a one-page handout</li>
+        <li><b>Staff training kit</b> — manager-led session, 30 minutes, with a scripted guide</li>
         <li><b>Approved tools list</b> — with the privacy settings to change first</li>
         <li><b>Data exposure checklist</b> — 12 leak paths and how to close each</li>
         <li><b>Control Record</b> — dated, signed, ready to show a client or insurer</li>
-        <li><b>Training kit</b> — manager's guide, employee handout, knowledge check, and wall certificate</li>
+        <li><b>Knowledge check</b> — ten questions, pass mark, answer key, and attendance record</li>
+        <li><b>Wall certificate</b> — dated, ready to frame</li>
       </ul>
       <a href="https://aisafeprotocol.gumroad.com/l/cpqrnz?wanted=true" class="btn btn--pri" style="text-align:center">Get the Control Pack — $499</a>
     </div>
@@ -667,7 +678,7 @@ function refNo(){
   const d=new Date();
   const y=d.getFullYear(), m=String(d.getMonth()+1).padStart(2,"0"), day=String(d.getDate()).padStart(2,"0");
   const r=Math.random().toString(36).slice(2,6).toUpperCase();
-  return "VH-"+y+m+day+"-"+r;
+  return "ASP-"+y+m+day+"-"+r;
 }
 
 function finish(){
@@ -688,7 +699,7 @@ function finish(){
   const stamp=$("stamp");
   if(failed.length===0){
     stamp.textContent="STANDARD MET"; stamp.classList.add("pass");
-    $("verdictText").textContent="All eight controls are in place. Reassess after any change in staff, tools, or banking arrangements.";
+    $("verdictText").textContent="All " + results.length + " controls are in place. Reassess after any change in staff, tools, or banking arrangements.";
   } else if(critFail>0){
     stamp.textContent="NOT MET"; stamp.classList.remove("pass");
     $("verdictText").textContent = critFail + " critical control" + (critFail>1?"s are":" is") + " missing, plus " + (failed.length-critFail) + " other gap" + ((failed.length-critFail)===1?"":"s") + ". Close the critical items this week — they are how the money actually leaves.";
