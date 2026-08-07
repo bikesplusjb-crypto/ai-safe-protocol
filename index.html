@@ -130,9 +130,9 @@ table.ctrl .fixline{color:var(--dim);font-size:13.5px;margin-top:5px;display:blo
 .tier .amt{font-family:"IBM Plex Mono";font-size:36px;font-weight:600;letter-spacing:-.03em}
 .tier .amt small{display:block;font-size:11px;color:var(--dimmer);letter-spacing:.12em;margin-top:7px;text-transform:uppercase}
 .tier ul{list-style:none;margin:22px 0 26px;flex:1}
-.tier li{padding:10px 0;border-top:1px solid var(--hair);font-size:14.5px;color:var(--ink-2);display:flex;gap:11px}
-.tier li:before{content:"";width:6px;height:6px;background:var(--seal);flex:none;margin-top:9px;border-radius:50%}
-.tier li b{color:var(--ink);font-weight:700}
+.tier li{padding:10px 0 10px 19px;border-top:1px solid var(--hair);font-size:14.5px;color:var(--ink-2);position:relative}
+.tier li:before{content:"";width:6px;height:6px;background:var(--seal);position:absolute;left:0;top:19px;border-radius:50%}
+.tier li b{color:var(--ink);font-weight:700;margin-right:.28em}
 
 /* domain summary */
 .domains{padding:20px 20px 6px;border-bottom:1px solid var(--hair)}
@@ -153,8 +153,9 @@ table.ctrl .fixline{color:var(--dim);font-size:13.5px;margin-top:5px;display:blo
 .pp-title{font-size:26px;font-weight:800;letter-spacing:-.035em;margin-top:18px}
 .pp-sub{color:var(--seal);font-size:13.5px;margin-top:6px}
 .pp-rules{list-style:none;counter-reset:pp;margin-top:18px}
-.pp-rules li{counter-increment:pp;padding:9px 0;border-bottom:1px solid var(--hair);font-size:14px;color:var(--ink-2);display:flex;gap:12px;align-items:baseline}
-.pp-rules li:before{content:counter(pp);font-family:"IBM Plex Mono";font-size:11px;font-weight:600;background:var(--hair);color:var(--ink);width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex:none;border-radius:2px}
+.pp-rules li{counter-increment:pp;padding:9px 0 9px 32px;border-bottom:1px solid var(--hair);font-size:14px;color:var(--ink-2);position:relative}
+.pp-rules li:before{content:counter(pp);font-family:"IBM Plex Mono";font-size:11px;font-weight:600;background:var(--hair);color:var(--ink);width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:2px;position:absolute;left:0;top:9px}
+.pp-rules li b{margin-right:.28em}
 .pp-rules li:first-child:before{background:var(--seal);color:#fff}
 .pp-fill{border:1px solid var(--seal);border-radius:2px;margin-top:18px;padding:14px 14px 6px}
 .pp-fill span{font-family:"IBM Plex Mono";font-size:8.5px;letter-spacing:.13em;color:var(--dim);display:block;margin-bottom:3px}
@@ -163,9 +164,9 @@ table.ctrl .fixline{color:var(--dim);font-size:13.5px;margin-top:5px;display:blo
 .print-buy h3{font-size:21px;margin-bottom:6px}
 .print-buy .who{color:var(--dimmer);font-size:14px;margin-bottom:20px}
 .print-buy ul{list-style:none;margin-bottom:24px;flex:1}
-.print-buy li{padding:10px 0;border-top:1px solid var(--hair);font-size:14.5px;color:var(--ink-2);display:flex;gap:11px}
-.print-buy li:before{content:"";width:6px;height:6px;background:var(--seal);flex:none;margin-top:9px;border-radius:50%}
-.print-buy li b{color:var(--ink);font-weight:700}
+.print-buy li{padding:10px 0 10px 19px;border-top:1px solid var(--hair);font-size:14.5px;color:var(--ink-2);position:relative}
+.print-buy li:before{content:"";width:6px;height:6px;background:var(--seal);position:absolute;left:0;top:19px;border-radius:50%}
+.print-buy li b{color:var(--ink);font-weight:700;margin-right:.28em}
 .print-buy .amt{font-family:"IBM Plex Mono";font-size:36px;font-weight:600;letter-spacing:-.03em;margin-bottom:18px}
 .print-buy .amt small{display:block;font-size:11px;color:var(--dimmer);letter-spacing:.12em;margin-top:7px;text-transform:uppercase}
 .micro{color:var(--dimmer);font-size:13px;margin-top:14px}
@@ -348,7 +349,7 @@ footer .logo{margin-bottom:16px}
         <li><b>Client security statement</b> — the page you send when a client asks how you handle AI</li>
         <li><b>Onboarding &amp; offboarding checklist</b> — including the AI accounts most lists miss</li>
         <li><b>Incident response pack</b> — first-hour actions, report form, and who to call</li>
-        <li><b>Six wall posters</b> — 11×17 and US Letter</li>
+        <li><b>Seven wall posters</b> — 11×17 and US Letter, including the home robot sheet</li>
         <li><b>Control Record + certificate</b> — dated, signed, ready to show</li>
       </ul>
       <a href="https://aisafeprotocol.gumroad.com/l/cpqrnz?wanted=true" class="btn btn--pri" style="text-align:center">Get the Control Pack — $499</a>
