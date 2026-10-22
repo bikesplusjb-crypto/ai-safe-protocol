@@ -792,10 +792,16 @@ const FALLBACK=[
   {headline:"Three categories of data that should never enter a chatbot",category:"Data handling",published_at:"2026-07-28"},
   {headline:"Setting a household verification code word",category:"Household",published_at:"2026-07-24"}
 ];
+/* Feed rows come from the database: escape every field, and only link to https: addresses. */
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl = u => { try { const x=new URL(String(u)); return x.protocol==="https:" ? x.href : ""; } catch(e){ return ""; } };
 function paintFeed(rows){
   $("feedGrid").innerHTML = rows.slice(0,3).map(r=>{
-    const d=new Date(r.published_at+"T00:00:00").toLocaleDateString(undefined,{month:"short",day:"2-digit",year:"numeric"});
-    return '<a href="'+(r.url||"#")+'" class="item"><span class="mono">'+d+' · '+r.category+'</span><h3>'+r.headline+'</h3></a>';
+    const t=new Date(String(r.published_at)+"T00:00:00");
+    const d=isNaN(t) ? "" : t.toLocaleDateString(undefined,{month:"short",day:"2-digit",year:"numeric"});
+    const body='<span class="mono">'+esc(d)+' · '+esc(r.category)+'</span><h3>'+esc(r.headline)+'</h3>';
+    const href=safeUrl(r.url);
+    return href ? '<a href="'+esc(href)+'" class="item" target="_blank" rel="noopener noreferrer">'+body+'</a>' : '<div class="item">'+body+'</div>';
   }).join("");
 }
 async function loadFeed(){
